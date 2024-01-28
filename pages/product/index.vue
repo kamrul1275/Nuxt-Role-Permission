@@ -276,13 +276,13 @@
 
     <!-- <UPagination v-model="product.page" :page-count="calculatePageCount()" :total="product.total" @pageChange="fetchData" /> -->
 
-    <UPagination v-model="page" :page-count="5" :total="30" />
+    <UPagination v-model="page" :page-count="5" :total="20" />
 
 
   </div>
 
 
-{{ permissionGet }}
+<!-- {{ permissionGet }} -->
 
 <!-- {{ auth.getPermission.name }} -->
   <br>
