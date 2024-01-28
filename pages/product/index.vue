@@ -40,19 +40,15 @@
       <tbody>
 
 
-        <tr>
-          <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            02
-          </th>
+        <tr v-for="(iteam, index) in dataTwice.data.data" :key="index">
+
+      
+          <th scope="row">{{ index + 1 }}</th>
+          <td>{{ iteam.title }}</td>
+          <td>{{ iteam.price }}</td>
 
           <td class="px-6 py-2">
-            rubi  </td>
-          <td class="px-6 py-2">
-            556
-          </td>
-
-          <td class="px-6 py-2">
-            66
+        {{ iteam.user_id }} 
           </td>
 
 
@@ -72,204 +68,6 @@
             Delete   </nuxt-link>
           </td>
         </tr>
-
-
-
-
-        <!-- <tr>
-          <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            03
-          </th>
-
-          <td class="px-6 py-2">
-            c++ </td>
-          <td class="px-6 py-2">
-            3343
-          </td>
-
-          <td class="px-6 py-2">
-            03
-          </td>
-
-
-
-          <td class="px-6">
-            <nuxt-link href="/product/edit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-              Edit
-            </nuxt-link>
-          </td>
-
-          <td class="px-6">
-            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
-          </td>
-        </tr>
-
-        <tr>
-          <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            05
-          </th>
-
-          <td class="px-6 py-2">
-            php </td>
-          <td class="px-6 py-2">
-            556
-          </td>
-
-          <td class="px-6 py-2">
-            66
-          </td>
-
-
-          <td class="px-6 ">
-            <nuxt-link href="/product/edit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-              Edit
-            </nuxt-link>
-          </td>
-
-          <td class="px-6">
-            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
-          </td>
-        </tr>
-
-
-
-
-        <tr>
-          <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            07
-          </th>
-
-          <td class="px-6 py-2">
-            c# </td>
-          <td class="px-6 py-2">
-            099
-          </td>
-
-          <td class="px-6 py-2">
-            03
-          </td>
-
-
-
-          <td class="px-6">
-            <nuxt-link href="/product/edit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-              Edit
-            </nuxt-link>
-          </td>
-
-          <td class="px-6">
-            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
-          </td>
-        </tr>
-
-        <tr>
-          <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            08
-          </th>
-
-          <td class="px-6 py-2">
-            test1 </td>
-          <td class="px-6 py-2">
-            899
-          </td>
-
-          <td class="px-6 py-2">
-            03
-          </td>
-
-
-
-          <td class="px-6">
-            <nuxt-link href="/product/edit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-              Edit
-            </nuxt-link>
-          </td>
-
-          <td class="px-6">
-            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
-          </td>
-        </tr>
-
-
-
-        <tr>
-          <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            09
-          </th>
-
-          <td class="px-6 py-2">
-            test2 </td>
-          <td class="px-6 py-2">
-            098
-          </td>
-
-          <td class="px-6 py-2">
-            03
-          </td>
-
-
-
-          <td class="px-6">
-            <nuxt-link href="/product/edit" v-if="auth.getPermission"
-              class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-              Edit
-            </nuxt-link>
-          </td>
-
-          <td class="px-6">
-            <a href="#" v-if="auth.getPermission"
-              class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
-          </td>
-        </tr>
-
-
-
-        <tr>
-          <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            10
-          </th>
-
-          <td class="px-6 py-2">
-            test2 </td>
-          <td class="px-6 py-2">
-            1122
-          </td>
-
-          <td class="px-6 py-2">
-            03
-          </td>
-
-
-
-          <td class="px-6">
-            <nuxt-link href="/product/edit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
-              Edit
-            </nuxt-link>
-          </td>
-
-          <td class="px-6">
-            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete</a>
-          </td>
-        </tr>
-
-
-        <tr>
-          <th scope="row" class="px-6 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-            11
-          </th>
-
-          <td class="px-6 py-2">
-            test4 </td>
-          <td class="px-6 py-2">
-            3232
-          </td>
-
-          <td class="px-6 py-2">
-            03
-          </td>
-
-        </tr>
-        -->
        
       </tbody>
     </table>
@@ -294,7 +92,7 @@
 <script setup>
 
 const page = ref(1)
-const items = ref(Array(55));
+const items = ref(Array(50));
 
 
 const auth = useAuthStore();
@@ -307,6 +105,29 @@ let hasDeletePremission= false;
 definePageMeta({
   middleware: "auth",
 });
+
+
+
+//  onMounted=()=>{
+
+// //   const dataTwice = await $fetch('http://127.0.0.1:8000/api/products')
+
+// // console.log(dataTwice.data.data);
+//  }
+
+  const dataTwice = await $fetch('http://127.0.0.1:8000/api/products')
+
+console.log("Product_Data",dataTwice.data.data);
+
+// async asyncData({ $axios }) {
+//     // Assuming you are using Axios for API requests
+//     const response = await $axios.get('your-api-endpoint');
+
+//     return {
+//       productList: response.data.data,
+//     };
+//   },
+
 
 const permissionGet = computed(() => {
   return auth.getPermission;
