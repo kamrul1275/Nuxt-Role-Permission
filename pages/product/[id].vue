@@ -5,14 +5,11 @@
 
   <div>
     <h1 class="py-2 font-medium text-gray-900 dark:text-white text-center">
-      Create Product page
+      Update Product
     </h1>
     <br />
 
     <div>
-      <!-- {{ per.name }} -->
-      <h1>Create Product</h1>
-
       <form class="max-w-sm mx-auto" @submit.prevent="submitForm()">
         <div class="mb-5">
           <label
@@ -79,23 +76,44 @@
 </template>
 
 <script setup>
+
+
 definePageMeta({
   middleware: "auth",
 });
 
 const auth = useAuthStore();
 const token = useTokenStore();
-
 const Product = reactive({
   title: "",
   price: "",
+ 
 });
-
 const imageUrl = ref(null);
 const imageInput = ref(null);
 
+
+
+    const route = useRoute();
+    const productId = ref(null);
+
+
+
+
+// edit part strat
+onMounted(() => {
+    // this.productId= route.params.id;
+    // alert(this.productId);
+
+    alert("oky");
+    });
+
+
+
+
+// end id
+
 const handleImageChange = (event) => {
-  //alert(Product);
   const file = event.target.files[0];
   if (!file) return;
 
@@ -113,22 +131,25 @@ const handleImageChange = (event) => {
 };
 
 const submitForm = async () => {
+  // const productId = params.id;
+  // console.log("User Id:", route.params.id);
+
   const formData = new FormData();
-  formData.append("title", title.value);
-  formData.append("price", price.value);
+  formData.append("title", Product.title);
+  formData.append("price", Product.price);
   formData.append("image", imageInput.value.files[0]);
 
-  await useFetch("http://127.0.0.1:8000/api/products", {
-    method: "POST",
+  await useFetch(`http://127.0.0.1:8000/api/products/${productId.id}`, {
+    method: "PUT",
     body: formData,
   })
     .then(() => {
       // Success message and reset form
-      alert("Form submitted successfully!");
-      title.value = "";
-      price.value = "";
+      alert("Product Update successfully!");
+      Product.title = "";
+      Product.price = "";
       imageUrl.value = null;
-      imageInput.value.files = null;
+      imageInput.value.value = [];
     })
     .catch((error) => {
       // Error message
