@@ -36,6 +36,10 @@
       </thead>
       <tbody>
         <tr v-for="(iteam, index) in dataTwice.data.data" :key="index">
+
+
+
+        <!-- {{ iteam }} -->
           <th scope="row">{{ index + 1 }}</th>
           <td>{{ iteam.title }}</td>
           <td>{{ iteam.price }}</td>
@@ -56,7 +60,7 @@
 
           <td class="px-6">
             <nuxt-link
-               @click.prevent="deleteProduct($event, iteam.id)"
+               @click.prevent="deleteProduct(iteam.id)"
               v-if="hasDeletePremission"
               class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
             >
@@ -96,9 +100,13 @@ let hasCreatePermission = false;
 let hasEditPremission = false;
 let hasDeletePremission = false;
 
+
+
 const dataTwice = await $fetch("http://127.0.0.1:8000/api/products");
 
-console.log("Product_Data", dataTwice.data.data);
+console.log("Product_Data:", dataTwice.data.data);
+
+
 
 
 
@@ -132,17 +140,58 @@ onBeforeMount(() => {
 
 
 
-const deleteProduct = async (event) => {
-  try {
+// const deleteProduct = async (event) => {
+
+// // alert('oky');
+//   try {
  
 
-    await useFetch(`http://127.0.0.1:8000/api/products/${id}`, {
+//     await useFetch(`http://127.0.0.1:8000/api/products/${this.id}`, {
+//       method: "DELETE",
+//       headers: {
+//         "Content-Type": "Application/Json",
+//         Authorization: `Bearer ${token}`, // Include this line if authentication is required
+//       },
+//     });
+
+//     // Handle success and navigation as needed
+//   } catch (error) {
+//     console.error("Error deleting product:", error);
+//     // Handle error, show a message, etc.
+//   }
+// };
+
+
+
+
+
+// alert('oky');
+const handleDeleteClick = async (productId) => {
+  // Perform any actions you need before calling deleteProduct
+  console.log("Product ID to be deleted:", productId);
+
+  // Now call your deleteProduct method with the product ID
+  await deleteProduct(productId);
+};
+
+  const deleteProduct = async (productId) => {
+
+
+
+
+  try {
+
+    alert('delete succesfully');
+    await useFetch(`http://127.0.0.1:8000/api/products/${productId}`, {
       method: "DELETE",
+     
       headers: {
-        "Content-Type": "Application/Json",
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`, // Include this line if authentication is required
       },
+     
     });
+
 
     // Handle success and navigation as needed
   } catch (error) {
@@ -150,6 +199,17 @@ const deleteProduct = async (event) => {
     // Handle error, show a message, etc.
   }
 };
+
+  
+
+
+
+
+
+
+
+
+
 </script>
 
 <style lang="scss" scoped></style>
